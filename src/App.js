@@ -1,5 +1,6 @@
 import './App.css';
 import Expenses from './components/Expensesf/ExpensesList/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
   const expenses = [
@@ -9,7 +10,7 @@ const App = () => {
   ]
   return (
     <div>
-      <h2 className='appTitle'>Money Tracker - React</h2>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );
