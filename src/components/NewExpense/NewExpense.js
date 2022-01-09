@@ -2,6 +2,7 @@ import React from 'react';
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
 
+//Parent component of NewExpense: App.js
 const NewExpense = (props) => {
     const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {

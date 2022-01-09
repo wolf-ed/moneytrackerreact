@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 
+//Parent component of ExpenseForm: NewExpense
 const ExpenseForm = (props) => {
     const [enteredtitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');

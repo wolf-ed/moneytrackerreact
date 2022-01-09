@@ -4,6 +4,7 @@ import ExpenseItem from '../ExpenseItem/ExpenseItem';
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter';
 import '../ExpensesFilter/ExpensesFilter.css';
 
+//Parent Component of Expenses is App.js
 const Expenses = (props) => {
 const [year, setYear] = useState('2022');
 const setReceivedYear = receivedYear => {
