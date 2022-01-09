@@ -16,10 +16,26 @@ const App = () => {
     setExpenses((prevExpenses) => {return [expense, ...prevExpenses]})
   }
 
+  let createId = () =>{
+    // while(defaultExpenses.includes(newId)){
+    //   newId = Math.floor(Math.random() * (defaultExpenses.length + 3));
+    // }
+    for(let i = 0; i < 1; i++){
+      let arLength = defaultExpenses.length;
+      let newId = Math.floor(Math.random() * (arLength * 99000)).toString();
+      if(!defaultExpenses.some(num => num === newId)){
+        return newId;
+      }else{
+        i--
+        return Math.floor(Math.random() * (arLength * 99000)).toString();
+          
+      }
+    }
+  }
 
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler}/>
+      <NewExpense onAddExpense={addExpenseHandler} toCreateId={createId}/>
       <Expenses items={expenses} />
     </div>
   );

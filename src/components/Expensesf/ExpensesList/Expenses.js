@@ -17,7 +17,7 @@ const setReceivedYear = receivedYear => {
             {
                 props.items.map((expense, i) => {
                     return(<ExpenseItem
-                    key={i++}
+                    key={expense.id}
                     title={expense.title}
                     amount={expense.amount}
                     date={expense.date}
