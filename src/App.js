@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import Expenses from './components/Expensesf/ExpensesList/Expenses';
+import Expenses from './components/ExpensesContent/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const defaultExpenses = [
@@ -8,7 +8,6 @@ const defaultExpenses = [
   { id: 'e2', title: "Book: Code complete", amount: 16.50, date: new Date(2021, 7, 12) },
   { id: 'e3', title: "Book: Think Data structure", amount: 27.50, date: new Date(2020, 10, 8) }
 ]
-const randomArray = ['a', 'e', 'b', 'c', 'd', 'e', 'f', 'g', 'h', '']
 
 const App = () => {
   const [expenses, setExpenses] = useState(defaultExpenses);
