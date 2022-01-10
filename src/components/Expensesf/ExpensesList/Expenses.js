@@ -11,11 +11,15 @@ const setReceivedYear = receivedYear => {
     setYear(receivedYear);
 }
 
+const filterByYear = props.items.filter(expenseYear => 
+    {return expenseYear.date.getFullYear().toString() === year});
+
+const thisYear = year;
     return (
         <div className="expenses">
             <ExpensesFilter selectedYear={year} onChangeSetSelectedYear={setReceivedYear}/>
             {
-                props.items.map((expense, i) => {
+                filterByYear.map((expense) => {
                     return(<ExpenseItem
                     key={expense.id}
                     title={expense.title}
