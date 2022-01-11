@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
 
 //Parent component of NewExpense: App.js
 const NewExpense = (props) => {
+    const [containerState, setcontainerStatus] = useState(false)
     const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {
             ...enteredExpenseData,
-            id: props.toCreateId() // TODO fix this so the same value is not generated twice
+            id: props.toCreateId()
         };
         props.onAddExpense(expenseData);
     };
 
+    const displayExpenseFormContainer = newVal => {
+        setcontainerStatus(newVal);
+    }
+    const showDisplay = () =>{
+        displayExpenseFormContainer(true)
+    }
+
+
     return (<div className="new-expense">
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+        {containerState && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onClickHide={displayExpenseFormContainer} />}
+        {!containerState && <button onClick={showDisplay}>Add new Expense</button>}
     </div>)
 }
 
