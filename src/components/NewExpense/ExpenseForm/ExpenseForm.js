@@ -8,14 +8,23 @@ const ExpenseForm = (props) => {
     const [enteredDate, setEnteredDate] = useState('');
     
     const titleChangeHandler = (event) => {
+        if((event.target.value) === ''){
+            return
+        }
         setEnteredTitle(event.target.value);
     };
 
     const amountChangeHandler = (event) => {
+        if((event.target.value) === ''){
+            return
+        }
         setEnteredAmount(event.target.value);
     };
 
     const dateChangeHandler = (event) => {
+        if((event.target.value) === ''){
+            return
+        }
         setEnteredDate(event.target.value);
     };
 
@@ -24,7 +33,7 @@ const ExpenseForm = (props) => {
 
         const expenseDate = {
             title: enteredtitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         };
         props.onSaveExpenseData(expenseDate);
