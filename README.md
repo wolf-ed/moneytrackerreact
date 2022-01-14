@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Money tracker react
 
-## link: *https://friendly-bhabha-89535b.netlify.app/*
+## Link: *https://friendly-bhabha-89535b.netlify.app/*
 
 ## Author: Ed Wolf
 
