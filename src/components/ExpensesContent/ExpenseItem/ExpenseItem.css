@@ -6,6 +6,11 @@
     margin: 1rem 0;
     background-color: #4b4b4b;
   }
+
+  .expense-item:hover {
+    border: 3px solid #40005d;
+    background-color: #5F5E61;
+  }
   
   .expense-item__description {
     display: flex;
@@ -34,6 +39,25 @@
     padding: 0.5rem;
     border-radius: 12px;
   }
+
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #40005d;
+    background-color: #40005d;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+  }
+  
+    button:hover,
+    button:active {
+    background-color: #510674;
+    border: solid 3px gray;
+  }
+
   
   @media (min-width: 580px) {
     .expense-item__description {

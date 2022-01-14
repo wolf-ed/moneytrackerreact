@@ -23,7 +23,7 @@ const Expenses = (props) => {
                 onChangeSetSelectedYear={setReceivedYear}
             />
             <ExpensesChart expenses={filterByYear} />
-            <ExpensesList items={filterByYear} />
+            <ExpensesList items={filterByYear} onDelete={props.onDeleteExpense}/>
         </div>
     )
 
