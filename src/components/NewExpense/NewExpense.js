@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
+import Button from '../UI/Button/Button';
 
 //Parent component of NewExpense: App.js
 const NewExpense = (props) => {
@@ -23,7 +24,7 @@ const NewExpense = (props) => {
 
     return (<div className="new-expense">
         {containerState && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onClickHide={displayExpenseFormContainer} />}
-        {!containerState && <button onClick={showDisplay}>Add new Expense</button>}
+        {!containerState && <Button onClick={showDisplay}>Add new Expense</Button>}
     </div>)
 }
 

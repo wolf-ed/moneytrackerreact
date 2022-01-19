@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import './ExpenseForm.css';
+import Button from '../../UI/Button/Button';
+import ErrorModal from '../../UI/ErrorModal/ErrorModal';
 
 //Parent component of ExpenseForm: NewExpense
 const ExpenseForm = (props) => {
     const [enteredtitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
+    const [error, setError] = useState();
     
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
@@ -26,8 +29,13 @@ const ExpenseForm = (props) => {
             enteredAmount === '' ||
             enteredDate === ''
         ){
-            alert('Please enter valid values!')
-            return
+            setError(
+                {
+                    title: 'Empty input fields',
+                    message: 'Please fill all the fields'
+                }
+            )
+            return;
         }else{
             const expenseDate = {
                 title: enteredtitle,
@@ -48,7 +56,12 @@ const ExpenseForm = (props) => {
         props.onClickHide(false);
     }
 
-    return (
+    const hideErrorModal = () => {
+        setError(null);
+    }
+
+    return (<Fragment>
+        {error && <ErrorModal title={error.title} message={error.message} onHide={hideErrorModal}/>}
         <form onSubmit={submitHandler}>
             <div className='new-expense__controls' >
                 <div className='new-expense__control' ></div>
@@ -77,10 +90,11 @@ const ExpenseForm = (props) => {
                     onChange={dateChangeHandler} />
             </div>
             <div className='new__expense__actions'>
-                <button type="submit">Add Expense</button>
-                <button type="button" onClick={hideDisplay}>Cancel</button>
+                <Button type="submit">Add Expense</Button>
+                <Button type="button" onClick={hideDisplay}>Cancel</Button>
             </div>
         </form>
+        </Fragment>
     );
 }
 
