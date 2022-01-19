@@ -8,39 +8,40 @@ const ExpenseForm = (props) => {
     const [enteredDate, setEnteredDate] = useState('');
     
     const titleChangeHandler = (event) => {
-        if((event.target.value) === ''){
-            return
-        }
         setEnteredTitle(event.target.value);
     };
 
     const amountChangeHandler = (event) => {
-        if((event.target.value) === 0){
-            return
-        }
         setEnteredAmount(event.target.value);
     };
 
     const dateChangeHandler = (event) => {
-        if((event.target.value) === ''){
-            return
-        }
         setEnteredDate(event.target.value);
     };
 
     const submitHandler = (event) => {
         event.preventDefault(); //prevents the page reloading when submit is called
+        if(
+            enteredtitle === '' ||
+            enteredAmount === '' ||
+            enteredDate === ''
+        ){
+            alert('Please enter valid values!')
+            return
+        }else{
+            const expenseDate = {
+                title: enteredtitle,
+                amount: +enteredAmount,
+                date: new Date(enteredDate)
+            };
+            props.onSaveExpenseData(expenseDate);
+            setEnteredTitle('');
+            setEnteredAmount('');
+            setEnteredDate('');
+            hideDisplay();
+        }
 
-        const expenseDate = {
-            title: enteredtitle,
-            amount: +enteredAmount,
-            date: new Date(enteredDate)
-        };
-        props.onSaveExpenseData(expenseDate);
-        setEnteredTitle('');
-        setEnteredAmount('');
-        setEnteredDate('');
-        hideDisplay();
+
     };
 
     const hideDisplay = () => {
